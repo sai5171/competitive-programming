@@ -1,39 +1,31 @@
-#include<stdio.h>
-#include<iostream>
-int main()
-{
-    char a[10][100];
-    int i,j;
-    int n;
-    int count=0;
-    if(scanf("%d",&n)==1);
-    while(n!=0)
-    {
-        int x=getchar();
-        for(i=0;i<n;i++)
-        {
-            if(scanf("%[^\n]s",&a[i])==1);
-            x=getchar();
-        }
-        count++;
-        printf("SET %d\n",count);
-        for(i=0;i<n;i++)
-        {
-            if(i%2==0)
-            {
-                printf("%s",a[i]);
-                printf("\n");
-            }
-        }
-        for(i=n-1;i>0;i--)
-        {
-            if(i%2==1)
-            {
-                printf("%s",a[i]);
-                printf("\n");
-            }
-        }
-        if(scanf("%d",&n)==1);
-    }
-    return 0;
+#include <bits/stdc++.h>
+
+using namespace std;
+int main() {
+	long long int n;
+  long long int count = 0;
+	while (cin >> n && n!=0) {
+		vector<string> v;
+		while(n--) {
+			string s;
+			cin >> s;
+			v.push_back(s);
+		}
+
+		long long int size = v.size();
+		vector<string> ans(size);
+		for(auto i = 0; i < size; i++) {
+			if (i%2) {
+				ans[size- ((i-1)/2) - 1] = v[i];
+			} else {
+				ans[i/2] = v[i];
+			}
+		}
+
+		cout << "SET " << ++count << endl;
+		for(auto i=ans.begin(); i!=ans.end(); i++) {
+			cout << *i << endl;
+		}
+	}
+	return 0;
 }
